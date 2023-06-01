@@ -3,7 +3,7 @@ A Bank Created In C++ with cool functionalities! If you want the whole program i
 # Banking System
 
 This is a simple banking system implemented in C++. It provides basic banking functionalities such as creating account, making deposits and withdrawals, and transferring funds between accounts.
-```Modified Version Of Previous Project **https://github.com/SharonIV0x86/BankingSystem** ```
+```Modified Version Of Previous Project``` **https://github.com/SharonIV0x86/BankingSystem**
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
