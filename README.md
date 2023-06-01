@@ -1,5 +1,5 @@
 # BankingSystem2.0
-A Bank Created In C++ with cool functionalities! 
+A Bank Created In C++ with cool functionalities! If you want the whole program in one file then just download ```**BankingSystem2p0.cpp**```
 # Banking System
 
 This is a simple banking system implemented in C++. It provides basic banking functionalities such as creating account, making deposits and withdrawals, and transferring funds between accounts.
@@ -37,8 +37,10 @@ This is a simple banking system implemented in C++. It provides basic banking fu
 - Once you pass human verification then,
 - You have to create your account, you will have a starting balance of **5000**.
 - In the account menu you can delete your account also.
-
-
+- **Output.txt** contains the pin and password in encrypted form.
+- **logs.txt** contains event logs like creation, logging of accounts.
+- **accountLogs.txt** contains logs of account related activities.
+- **account.txt** contains updated balance
 ## Installation
 For Windows: Download the file as Zip and extract the folder. And run **2main.cpp** And everytime you want to use the program just run the same file.
 For Linux: Git clone **https://github.com/SharonIV0x86/BankingSystem2.0#bankingsystem20** to your desired folder.
