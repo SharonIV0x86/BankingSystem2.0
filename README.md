@@ -1,5 +1,5 @@
 # BankingSystem2.0
-A Bank Created In C++ with cool functionalities! If you want the whole program in one file then just download ```**BankingSystem2p0.cpp**```
+A Bank Created In C++ with cool functionalities! If you want the whole program in one file then just download **BankingSystem2p0.cpp**
 # Banking System
 
 This is a simple banking system implemented in C++. It provides basic banking functionalities such as creating account, making deposits and withdrawals, and transferring funds between accounts.
