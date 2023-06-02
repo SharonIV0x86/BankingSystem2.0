@@ -8,6 +8,7 @@ static int encryptionKey = 123;
 std::size_t hash(std::string hash);
 std::string testPass, testAccount, testPin;
 
+
 int age;
 
 int transc1, transc2, balance;
