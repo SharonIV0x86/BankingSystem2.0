@@ -33,7 +33,7 @@ This is a simple banking system implemented in C++. It provides basic banking fu
 - CROSS PLATFORM! Tested on Windows with GCC-x64. Yet to test on Linux systems.
 - 
 ## USAGE 
-- Once you run 2main.cpp for the first time. You will have to **create** a new account. Be sure not to forget your credentials.
+- Once you run **Bank.cpp** for the first time. You will have to **create** a new account. Be sure not to forget your credentials.
 - Once you pass human verification then,
 - You have to create your account, you will have a starting balance of **5000**.
 - In the account menu you can delete your account also.
