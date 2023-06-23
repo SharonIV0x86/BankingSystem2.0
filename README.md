@@ -42,7 +42,7 @@ This is a simple banking system implemented in C++. It provides basic banking fu
 - **accountLogs.txt** contains logs of account related activities.
 - **account.txt** contains updated balance
 ## Installation
-For Windows: Download the file as Zip and extract the folder. And run **2main.cpp** And everytime you want to use the program just run the same file.
+For Windows: Download the file as Zip and extract the folder. And run **Bank.cpp** And everytime you want to use the program just run the same file.
 For Linux: Git clone **https://github.com/SharonIV0x86/BankingSystem2.0#bankingsystem20** to your desired folder.
 If you face any issues as the log files are being empty. run this command 
 ```chmod +rwx 2main.cpp 2suppliments.h```
