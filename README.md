@@ -49,15 +49,7 @@ If you face any issues as the log files are being empty. run this command
 If the problem persists. then execute.
 ```chmod +rwx *```
 ## Future Updates
-- Planning on to implement a strong encryption algorighm. The current one in use is a very simple one and simply adds +2 to the ascii value.
-- Planning on allowing one user to create mutiple accounts.
-- Reduction on code complexity.
-- Implementation of a simple database to easily store data in a more readable format.
-- Writing less messy and better code next time.
-- Using object destructor correctly.
-- Allowing healthy looping of statements.
-- Using a strong verification system. Because the current one being used, it generates same values all over again.
-- Currently there is no encryption used for pin, so if you open your **output.txt** you can see the PIN you entered in plain text. So i will be using a strong encryption for PIN also.
+all possible updates as of current knowledge are implemented.
 
 
 ## Working
@@ -141,4 +133,4 @@ If the problem persists. then execute.
 |-- End
 ```
 ## Developer's Note
-**Heyy This is me SharonIV aka Jasper. I have been working on this program for a week now so i was finally able to complete this project that i started literally last year. I will be adding more and more functionalities to this code and make it even more better as i keep learning this amazing C++ language with time. I know this code that i have written is not up to the point and consists some problems and inconsistencies but i will surely try to fix everything i can. If you are reading this and want to collaborate and work on a project together then you can read me on my discord Jasperr#6925**
+**Heyy This is me SharonIV aka Jasper. I have been working on this program for a week now so i was finally able to complete this project that i started literally last year. I will be adding more and more functionalities to this code and make it even more better as i keep learning this amazing C++ language with time. I know this code that i have written is not up to the point and consists some problems and inconsistencies but i will surely try to fix everything i can. If you are reading this and want to collaborate and work on a project together then you can reach me on my discord Jasperr#6925**
