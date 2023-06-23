@@ -45,9 +45,12 @@ This is a simple banking system implemented in C++. It provides basic banking fu
 For Windows: Download the file as Zip and extract the folder. And run **Bank.cpp** And everytime you want to use the program just run the same file.
 For Linux: Git clone **https://github.com/SharonIV0x86/BankingSystem2.0#bankingsystem20** to your desired folder.
 If you face any issues as the log files are being empty. run this command 
-```chmod +rwx 2main.cpp 2suppliments.h```
+```chmod +rwx Bank.cpp BankHeaders.cpp BankHeaders.h```
 If the problem persists. then execute.
 ```chmod +rwx *```
+
+# BankingSystem2p0.cpp
+BankingSystem2p0.cpp Is a standalone file, consisting of all function and classes definition, if you need just one file for the whole banking system, go for it. It is a bit outdated for now but will work on it.
 ## Future Updates
 all possible updates as of current knowledge are implemented.
 
