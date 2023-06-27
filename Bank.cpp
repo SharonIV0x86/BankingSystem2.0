@@ -16,7 +16,6 @@ int main()
         std::ofstream createLogFile("logs/logs.txt");
         std::ofstream createOutputFile("logs/output.txt");
         std::cout << "\n\n\tYou must now try again! " << std::endl;
-        return 0;
     }
     else if (!exists1 && exists2)
     {
@@ -24,7 +23,6 @@ int main()
         std::cout << "\n\n\tOne of the program files are missing, new file will be created ;)" << std::endl;
         std::ofstream createOutputFile("logs/output.txt");
         std::cout << "\n\n\tYou must now try again! " << std::endl;
-        return 0;
     }
     else if (exists1 && !exists2)
     {
@@ -32,7 +30,6 @@ int main()
         std::cout << "\n\n\tOne of the program files are missing, new file will be created ;)" << std::endl;
         std::ofstream createLogFile("logs/logs.txt");
         std::cout << "\n\n\tYou must now try again! " << std::endl;
-        return 0;
     }
     std::cout << "\n\n\tYour must complete human verification first. " << std::endl;
     humanVerification();
@@ -76,12 +73,12 @@ int main()
 
         account.savingLogs(1);
         std::cout << "\n\n\tAccount created successfully! you must now log in to your account! " << std::endl;
-        exit(0);
     }
 
     File->hashedAccountName = hash(File->accountName);
     File->hashedPassword = hash(File->password);
     File->hashedPin = hash(File->pin);
     account.checkCredentials();
+    delete File;
     return 0;
 }

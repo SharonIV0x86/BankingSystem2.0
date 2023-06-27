@@ -5,8 +5,8 @@
 #include <ctime>
 #include <fstream>
 
-constexpr int cntr = 0;
 class fileIO;
+
 class fileIO
 {
 public:
@@ -21,22 +21,27 @@ public:
     void cool();
     int readIntFromFile();
     template <typename Temp>
-    void fileIO::writeToFile(const Temp &val)
-{
-    std::ofstream outputFile("logs/output.txt", std::ios::app);
-    if (outputFile.is_open())
+    void writeToFile(const Temp &val)
     {
-        outputFile << val << std::endl;
-        outputFile.close();
+        std::ofstream outputFile("logs/output.txt", std::ios::app);
+        if (outputFile.is_open())
+        {
+            outputFile << val << std::endl;
+            outputFile.close();
+        }
+        else
+        {
+            std::cout << "Failed to open the file for writing." << std::endl;
+        }
     }
-    else
-    {
-        std::cout << "Failed to open the file for writing." << std::endl;
-    }
-}
+    ~fileIO();
     friend std::size_t hash(std::string hash);
 };
 fileIO *File = new fileIO();
+    fileIO::~fileIO()
+    {
+        cool();
+    }
 class User
 {
 public:

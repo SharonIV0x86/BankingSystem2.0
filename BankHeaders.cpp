@@ -30,7 +30,6 @@ int fileIO::writeIntToFile(int value)
         std::cout << "\n\n\tYou must now try again! " << std::endl;
         std::ofstream createAccountFile("logs/account.txt");
         createAccountFile << 5000;
-        exit(0);
     }
     std::string filename = "logs/account.txt";
     std::ofstream file(filename);
@@ -67,7 +66,6 @@ int fileIO::readIntFromFile()
         std::ofstream createAccountFile("logs/account.txt");
         createAccountFile << 5000;
         std::cout << "\n\n\tYou must now try again! " << std::endl;
-        exit(0);
     }
 
     std::ifstream readInt("logs/account.txt");
@@ -75,8 +73,6 @@ int fileIO::readIntFromFile()
     readInt.close();
     return 0;
 }
-
-
 std::size_t hash(std::string hash)
 {
     std::hash<std::string> hasher;
@@ -198,7 +194,7 @@ void Account::accountAccess()
                 std::cout << "\n\t1.) You cannot deposit more than 1,00,000 at a time. "
                           << "\n\t2.) Minimum amount for a deposit must be greater than 5,000. You have to deposit more than 5,000. "
                           << "\n\t3.) Your account can hold a maximum amount of 10,00,000 (1Million). "
-                          << "\n\n\tRead Cyprus National Bank's policies. Press enter to continue " << std::flush;
+                          << "\n\n\tRead Cyprus National Bank's policies. Press enter to continue " << std::endl;
                 std::cin.get();
                 std::cin.get();
             }
@@ -322,11 +318,11 @@ void Account::accountAccess()
                   << "\n\t\t\t\t\t\t\t~JasperrBru ";
         std::cin.get();
         accountAccess();
+        break;
     }
 
     case 5:
     {
-        File->cool();
         break;
     }
     default:
