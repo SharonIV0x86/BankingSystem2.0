@@ -20,7 +20,7 @@ public:
     int writeIntToFile(int value);
     void cool();
     int readIntFromFile();
-    template <typename Temp>
+    // template <typename Temp>
     void writeToFile(const Temp &val);
     friend std::size_t hash(std::string hash);
 };
