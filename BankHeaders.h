@@ -20,8 +20,20 @@ public:
     int writeIntToFile(int value);
     void cool();
     int readIntFromFile();
-    // template <typename Temp>
-    void writeToFile(const Temp &val);
+    template <typename Temp>
+    void fileIO::writeToFile(const Temp &val)
+{
+    std::ofstream outputFile("logs/output.txt", std::ios::app);
+    if (outputFile.is_open())
+    {
+        outputFile << val << std::endl;
+        outputFile.close();
+    }
+    else
+    {
+        std::cout << "Failed to open the file for writing." << std::endl;
+    }
+}
     friend std::size_t hash(std::string hash);
 };
 fileIO *File = new fileIO();

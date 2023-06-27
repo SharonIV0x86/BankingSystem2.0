@@ -75,20 +75,7 @@ int fileIO::readIntFromFile()
     readInt.close();
     return 0;
 }
-template <typename Temp>
-void fileIO::writeToFile(const Temp &val)
-{
-    std::ofstream outputFile("logs/output.txt", std::ios::app);
-    if (outputFile.is_open())
-    {
-        outputFile << val << std::endl;
-        outputFile.close();
-    }
-    else
-    {
-        std::cout << "Failed to open the file for writing." << std::endl;
-    }
-}
+
 
 std::size_t hash(std::string hash)
 {
