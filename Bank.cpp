@@ -65,20 +65,16 @@ int main()
     {
         clearScreen();
         std::cout << "\n\n\tYour account credentials has been modified or truncuated, your new account is NOW created. " << std::endl;
-        File->writeToFile(hash(File->accountName));
+        File->writeToFile(File->accountName);
         File->writeToFile(hash(File->password));
-        File->writeToFile(hash(File->pin));
+        File->writeToFile(File->pin);
 
         File->writeToFile("\n");
 
         account.savingLogs(1);
         std::cout << "\n\n\tAccount created successfully! you must now log in to your account! " << std::endl;
     }
-
-    File->hashedAccountName = hash(File->accountName);
     File->hashedPassword = hash(File->password);
-    File->hashedPin = hash(File->pin);
     account.checkCredentials();
-    delete File;
     return 0;
 }

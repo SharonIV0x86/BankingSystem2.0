@@ -240,7 +240,6 @@ void Account::accountAccess()
             }
         }
         File->remainingBalance = File->remainingBalance - File->withdrawAmount;
-        // clearScreen();
         std::cout << "\n\n\tMoney has been WITHDRAWN SUCCESSFULLY! " << std::endl;
         File->writeIntToFile(File->remainingBalance);
         savingLogs(4);
@@ -253,7 +252,6 @@ void Account::accountAccess()
         clearScreen();
 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        readData >> File->readAcn >> File->readPassword >> File->readPin;
 
         std::cout << "\n\n\tWARNING, YOUR ACCOUNT DATA WILL BE DELETED FOREVER! ";
 
@@ -269,14 +267,14 @@ void Account::accountAccess()
         std::getline(std::cin, File->pin);
         checkForEmptyField(File->pin);
 
-        File->hashedAccountName = hash(File->accountName);
+        File->permanentAccountName = File->accountName;
         File->hashedPassword = hash(File->password);
-        File->hashedPin = hash(File->pin);
-        if (File->hashedAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->hashedPin == File->readPin)
+        File->pin = File->pin;
+        if (File->permanentAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->pin == File->readPin)
         {
             clearScreen();
 
-            const char *filenames[4] = {"logs/output.txt", "logs/logs.txt", "logs/accountlogs.txt", "logs/account.txt"};
+            constexpr const char* filenames[4] = {"logs/output.txt", "logs/logs.txt", "logs/accountlogs.txt", "logs/account.txt"};
 
             for (int i = 0; i < 4; i++)
             {
@@ -288,13 +286,15 @@ void Account::accountAccess()
             savingLogs(6);
             exit(0);
         }
-        else if (File->hashedAccountName != File->readAcn && File->hashedPassword != File->readPassword && File->hashedPin != File->readPin)
+        else if (File->permanentAccountName != File->readAcn && File->hashedPassword != File->readPassword && File->pin != File->readPin)
         {
             clearScreen();
             std::cout << "\n\n\tCredentials Dont match  " << std::endl;
             accountAccess();
         }
+        break;
     }
+
     case 4:
     {
         clearScreen();
@@ -369,7 +369,8 @@ void Account::checkCredentials()
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::ifstream readData("logs/output.txt");
     readData >> File->readAcn >> File->readPassword >> File->readPin;
-    if (File->hashedAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->hashedPin == File->readPin)
+    
+    if (File->permanentAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->pin == File->readPin)
     {
         clearScreen();
         std::cout << "\n\n\tRedirecting to your account now! Press Enter! " << std::endl;
@@ -377,7 +378,7 @@ void Account::checkCredentials()
 
         accountAccess();
     }
-    else if (File->hashedAccountName != File->readAcn || File->hashedPassword != File->readPassword || File->hashedPin != File->readPin)
+    else if (File->permanentAccountName != File->readAcn || File->hashedPassword != File->readPassword || File->pin != File->readPin)
     {
         clearScreen();
         std::cout << "\n\n\tCredentials Dont match kindly retry! This event will be recorded! " << std::endl;

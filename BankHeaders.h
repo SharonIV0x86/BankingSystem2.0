@@ -4,7 +4,7 @@
 #include <fstream>
 #include <ctime>
 #include <fstream>
-
+#include <memory>
 class fileIO;
 
 class fileIO
@@ -13,7 +13,9 @@ public:
     int age;
 
     int depositAmount, withdrawAmount, remainingBalance;
-    std::size_t hashedAccountName, hashedPassword, hashedPin, readAcn, readPassword, readPin;
+    std::string readAcn, readPin;
+
+    std::size_t hashedPassword, readPassword;
 
     std::string permanentAccountName, pin, accountName, password;
 
@@ -34,14 +36,12 @@ public:
             std::cout << "Failed to open the file for writing." << std::endl;
         }
     }
-    ~fileIO();
-    friend std::size_t hash(std::string hash);
-};
-fileIO *File = new fileIO();
-    fileIO::~fileIO()
-    {
+    ~fileIO(){
         cool();
     }
+    friend std::size_t hash(std::string hash);
+};
+std::unique_ptr<fileIO> File = std::make_unique<fileIO>();
 class User
 {
 public:
