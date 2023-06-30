@@ -67,7 +67,6 @@ int fileIO::readIntFromFile()
         createAccountFile << 5000;
         std::cout << "\n\n\tYou must now try again! " << std::endl;
     }
-
     std::ifstream readInt("logs/account.txt");
     readInt >> File->remainingBalance;
     readInt.close();

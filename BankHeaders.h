@@ -13,13 +13,11 @@ class fileIO
 {
 public:
     int age;
-
     int depositAmount, withdrawAmount, remainingBalance;
-    std::string readAcn, readPin;
 
-    std::string hashedPassword, readPassword;
-
-    std::string permanentAccountName, pin, accountName, password;
+    std::string readAcn, readPin,
+        hashedPassword, readPassword,
+        permanentAccountName, pin, accountName, password;
 
     int writeIntToFile(int value);
     void cool();
@@ -38,7 +36,8 @@ public:
             std::cout << "Failed to open the file for writing." << std::endl;
         }
     }
-    ~fileIO(){
+    ~fileIO()
+    {
         cool();
     }
     friend std::size_t hash(std::string hash);

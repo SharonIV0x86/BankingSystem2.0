@@ -57,8 +57,6 @@ int main()
         std::cout << "\n\n\tPin lenght must be only of 4 characters! ";
         exit(0);
     }
-
-    // int strTOint = std::stoi(File->pin);
     std::cout << "\n\n\tEncrypting Credentials! Press enter to continue ";
 
     if (isFileEmpty("logs/output.txt"))
