@@ -73,16 +73,33 @@ int fileIO::readIntFromFile()
     readInt.close();
     return 0;
 }
-std::size_t hash(std::string hash)
+std::string computeHash(const std::string& input)
 {
-    std::hash<std::string> hasher;
+    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
+    
+    const EVP_MD* md = EVP_sha512();
 
-    std::string salt = "0x945GHxxJsxper";
-    std::string input = hash + salt;
-    std::size_t hashValue = hasher(input);
+    EVP_DigestInit_ex(mdctx, md, nullptr);
 
-    return hashValue;
+    EVP_DigestUpdate(mdctx, input.c_str(), input.length());
+
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    unsigned int digestLength;
+
+    EVP_DigestFinal_ex(mdctx, digest, &digestLength);
+
+    EVP_MD_CTX_free(mdctx);
+
+    std::string hash;
+
+    for (unsigned int i = 0; i < digestLength; i++) {
+        char buf[3];
+        sprintf(buf, "%02x", digest[i]);
+        hash += buf;
+    }
+    return hash;
 }
+
 
 void checkForEmptyField(std::string field)
 {
@@ -268,7 +285,7 @@ void Account::accountAccess()
         checkForEmptyField(File->pin);
 
         File->permanentAccountName = File->accountName;
-        File->hashedPassword = hash(File->password);
+        File->hashedPassword = computeHash(File->password);
         File->pin = File->pin;
         if (File->permanentAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->pin == File->readPin)
         {

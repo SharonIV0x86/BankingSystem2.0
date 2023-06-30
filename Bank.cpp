@@ -58,7 +58,7 @@ int main()
         exit(0);
     }
 
-    int strTOint = std::stoi(File->pin);
+    // int strTOint = std::stoi(File->pin);
     std::cout << "\n\n\tEncrypting Credentials! Press enter to continue ";
 
     if (isFileEmpty("logs/output.txt"))
@@ -66,7 +66,7 @@ int main()
         clearScreen();
         std::cout << "\n\n\tYour account credentials has been modified or truncuated, your new account is NOW created. " << std::endl;
         File->writeToFile(File->accountName);
-        File->writeToFile(hash(File->password));
+        File->writeToFile(computeHash(File->password));
         File->writeToFile(File->pin);
 
         File->writeToFile("\n");
@@ -74,7 +74,7 @@ int main()
         account.savingLogs(1);
         std::cout << "\n\n\tAccount created successfully! you must now log in to your account! " << std::endl;
     }
-    File->hashedPassword = hash(File->password);
+    File->hashedPassword = computeHash(File->password);
     account.checkCredentials();
     return 0;
 }

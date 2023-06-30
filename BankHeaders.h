@@ -5,6 +5,8 @@
 #include <ctime>
 #include <fstream>
 #include <memory>
+#include <string>
+#include <openssl/evp.h>
 class fileIO;
 
 class fileIO
@@ -15,7 +17,7 @@ public:
     int depositAmount, withdrawAmount, remainingBalance;
     std::string readAcn, readPin;
 
-    std::size_t hashedPassword, readPassword;
+    std::string hashedPassword, readPassword;
 
     std::string permanentAccountName, pin, accountName, password;
 

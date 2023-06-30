@@ -5,10 +5,9 @@ A Bank Created In C++ with cool functionalities! If you want the whole program i
 This is a simple banking system implemented in C++. It provides basic banking functionalities such as creating account, making deposits and withdrawals, and transferring funds between accounts.
 ```Modified Version Of Previous Project``` **https://github.com/SharonIV0x86/BankingSystem**
 ## Table of Contents
+- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
-- [License](#license)
 - [Future Updates](#Future-Updates)
 - [Working](#Working)
 - [Developer's Note](#Developer's-Note)
@@ -23,17 +22,31 @@ This is a simple banking system implemented in C++. It provides basic banking fu
    - Your logging into the account.
    - Your trying to delete existing account.
    - Logs exact date and time of the action been performed in the 24hr format
-   - For easy navigation through logs you can use search following keywords in the log file
+   - For easy navigation through logs you can use search following keywords in the log files
       - WITHDRAWN to find logs events related to withdrawals in the accountLogs.txt file
       - DEPOSITS to find logs events related to deposits in the accountLogs.txt file
       - LOGIN to find events related to who logged into which account.
       - CREATED to find event logs related to what accounts have been created
 - If the user tried to modify the balance ammount in **account.txt** the program will not allow them to do so.
 - If the user tries to delete or truncuate the contents of the program files. The code will generate new ones.
-- CROSS PLATFORM! Tested on Windows with GCC-x64. Yet to test on Linux systems.
-- 
+- CROSS PLATFORM! Tested on Windows with GCC-x64 and MSYS2. Yet to test on Linux systems.
+
+## Installation
+
+**For Both Linux And Windows**
+Run the Makefile using **make** make sure to have Makefile installed and if running in VS code make sure to have the Makefile extension installed and enabled.
+If you dont want to use Makefile, you can directly run this **make** command in any terminal the program files will be recompiled and executed, just make sure your terminal should be opened in the same folder where the files are located.
+
+To Delete the executable run **make delete** to delete the executable file.
+
+**On Linux Only**
+If you face any issues as the log files are empty it is possibly because the text files are missing permissions. run this command 
+```chmod +rwx Bank.cpp BankHeaders.cpp BankHeaders.h```
+If the problem persists. then execute.
+```chmod +rwx *```
+
 ## USAGE 
-- Once you run **Bank.cpp** for the first time. You will have to **create** a new account. Be sure not to forget your credentials.
+- Open the terminal and run **make** to run the make file.
 - Once you pass human verification then,
 - You have to create your account, you will have a starting balance of **5000**.
 - In the account menu you can delete your account also.
@@ -41,18 +54,13 @@ This is a simple banking system implemented in C++. It provides basic banking fu
 - **logs.txt** contains event logs like creation, logging of accounts.
 - **accountLogs.txt** contains logs of account related activities.
 - **account.txt** contains updated balance
-## Installation
-For Windows: Download the file as Zip and extract the folder. And run **Bank.cpp** And everytime you want to use the program just run the same file.
-For Linux: Git clone **https://github.com/SharonIV0x86/BankingSystem2.0#bankingsystem20** to your desired folder.
-If you face any issues as the log files are being empty. run this command 
-```chmod +rwx Bank.cpp BankHeaders.cpp BankHeaders.h```
-If the problem persists. then execute.
-```chmod +rwx *```
+
+## Future Updates
+- Implementing a database for storing all the data, log events.
+- Adding functionality for creating multiple users.
 
 # BankingSystem2p0.cpp
 BankingSystem2p0.cpp Is a standalone file, consisting of all function and classes definition, if you need just one file for the whole banking system, go for it. It is a bit outdated for now but will work on it.
-## Future Updates
-all possible updates as of current knowledge are implemented.
 
 
 ## Working
