@@ -6,6 +6,7 @@ This is a simple banking system implemented in C++. It provides basic banking fu
 ```Modified Version Of Previous Project``` **https://github.com/SharonIV0x86/BankingSystem**
 ## Table of Contents
 - [Features](#features)
+- [Logging](#Logging)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Future Updates](#Future-Updates)
@@ -21,16 +22,20 @@ This is a simple banking system implemented in C++. It provides basic banking fu
    - Your new account creation.
    - Your logging into the account.
    - Your trying to delete existing account.
-   - Logs exact date and time of the action been performed in the 24hr format
-   - For easy navigation through logs you can use search following keywords in the log files
-      - WITHDRAWN to find logs events related to withdrawals in the accountLogs.txt file
-      - DEPOSITS to find logs events related to deposits in the accountLogs.txt file
-      - LOGIN to find events related to who logged into which account.
-      - CREATED to find event logs related to what accounts have been created
 - If the user tried to modify the balance ammount in **account.txt** the program will not allow them to do so.
 - If the user tries to delete or truncuate the contents of the program files. The code will generate new ones.
 - CROSS PLATFORM! Tested on Windows with GCC-x64 and MSYS2. Yet to test on Linux systems.
 
+## Logging
+   - Logs exact date and time of the action been performed in the 24hr format.
+   - For easy navigation through logs you can use search following keywords in the log files
+      - CREATED to find logs related to when a user(s) CREATED their account.
+      - LOGGED INTO to find the logs related to when the user LOGGED into their account.
+      - DEPOSITS to find logs events related to deposits in the accountLogs.txt file.
+      - WITHDRAWN to find logs events related to withdrawals in the accountLogs.txt file.
+      - WRONG CREDENTIALS (or just WRONG is enough )to find the logs related to event when a user entered their wrong credentials.
+      - DELETED to find logs related to when the user deleted their account.
+      - LOGGED OUT to find events related to when user logged out of their account. This can also include internal program errors hence can be inaccurate.
 ## Installation
 
 **For Both Linux And Windows**

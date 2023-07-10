@@ -1,4 +1,4 @@
-#include "BankHeaders.cpp"
+#include "bankDefinitions.cpp"
 
 int main()
 {
@@ -55,6 +55,7 @@ int main()
     if (File->pin.length() > 4 || File->pin.length() < 4)
     {
         std::cout << "\n\n\tPin lenght must be only of 4 characters! ";
+        account.savingLogs(5);
         exit(0);
     }
     std::cout << "\n\n\tEncrypting Credentials! Press enter to continue ";
