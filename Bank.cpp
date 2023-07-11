@@ -8,9 +8,9 @@ int main()
     {
         std::cout << "\n\n\tSome program files are missing, please wait while we fix them! " << std::endl;
 
-        !fileExists("logs/output.txt") ? (std::ofstream("logs/output.txt")) : (NULL);
-        !fileExists("logs/logs.txt") ? (std::ofstream("logs/logs.txt")) : (NULL); //using ternaries to check for files
-        !fileExists("logs/account.txt") ? (std::ofstream("logs/account.txt")) : (NULL);
+        !fileExists("logs/output.txt") ? (std::ofstream("logs/output.txt"),1) : (0);
+        !fileExists("logs/logs.txt") ? (std::ofstream("logs/logs.txt"), 1) : (0); //using ternaries to check for files, self note: it should return a same value
+        !fileExists("logs/account.txt") ? (std::ofstream("logs/account.txt"), 1) : (0);
     }
     std::cout << "\n\n\tYour must complete human verification first. " << std::endl;
     humanVerification();
