@@ -291,9 +291,9 @@ void Account::accountAccess()
         {
             clearScreen();
 
-            constexpr const char *filenames[4] = {"logs/output.txt", "logs/logs.txt", "logs/accountlogs.txt", "logs/account.txt"};
+            constexpr const char *filenames[3] = {"logs/output.txt", "logs/logs.txt", "logs/account.txt"};
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
 
                 std::ofstream ofs(filenames[i], std::ios::trunc);
@@ -355,7 +355,6 @@ void Account ::savingLogs(int logAction)
     std::time_t currentTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     char timeString[100];
     std::strftime(timeString, sizeof(timeString), "%Y-%m-%d %H:%M:%S", std::localtime(&currentTime));
-    std::ofstream moneyLogs("logs/accountlogs.txt", std::ios::app);
     switch (logAction)
     {
     case 1:
@@ -383,7 +382,6 @@ void Account ::savingLogs(int logAction)
         break;
     }
     log.close();
-    moneyLogs.close();
 }
 void Account::checkCredentials()
 {

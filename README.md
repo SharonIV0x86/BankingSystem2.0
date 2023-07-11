@@ -31,8 +31,8 @@ This is a simple banking system implemented in C++. It provides basic banking fu
    - For easy navigation through logs you can use search following keywords in the log files
       - CREATED to find logs related to when a user(s) CREATED their account.
       - LOGGED INTO to find the logs related to when the user LOGGED into their account.
-      - DEPOSITS to find logs events related to deposits in the accountLogs.txt file.
-      - WITHDRAWN to find logs events related to withdrawals in the accountLogs.txt file.
+      - DEPOSITS to find logs events related to deposits in the logs.txt file.
+      - WITHDRAWN to find logs events related to withdrawals in the logs.txt file.
       - WRONG CREDENTIALS (or just WRONG is enough )to find the logs related to event when a user entered their wrong credentials.
       - DELETED to find logs related to when the user deleted their account.
       - LOGGED OUT to find events related to when user logged out of their account. This can also include internal program errors hence can be inaccurate.
@@ -56,8 +56,7 @@ If the problem persists. then execute.
 - You have to create your account, you will have a starting balance of **5000**.
 - In the account menu you can delete your account also.
 - **Output.txt** contains the pin and password in encrypted form.
-- **logs.txt** contains event logs like creation, logging of accounts.
-- **accountLogs.txt** contains logs of account related activities.
+- **logs.txt** contains event logs like creation, logging of accounts and all other events.
 - **account.txt** contains updated balance
 
 ## Future Updates

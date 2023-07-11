@@ -4,32 +4,13 @@ int main()
 {
     clearScreen();
     std::cout << "\n\n\tPlease wait we are checking for required files! " << std::endl;
-    std::string outputFile = "logs/output.txt";
-    std::string logFile = "logs/logs.txt";
+    if (!fileExists("logs/output.txt") || !fileExists("logs/logs.txt") || !fileExists("logs/account.txt"))
+    {
+        std::cout << "\n\n\tSome program files are missing, please wait while we fix them! " << std::endl;
 
-    bool exists1 = fileExists(outputFile);
-    bool exists2 = fileExists(logFile);
-    if (!exists1 && !exists2)
-    {
-        clearScreen();
-        std::cout << "\n\n\tMultiple program files are missing! Generating now, ;) " << std::endl;
-        std::ofstream createLogFile("logs/logs.txt");
-        std::ofstream createOutputFile("logs/output.txt");
-        std::cout << "\n\n\tYou must now try again! " << std::endl;
-    }
-    else if (!exists1 && exists2)
-    {
-        clearScreen();
-        std::cout << "\n\n\tOne of the program files are missing, new file will be created ;)" << std::endl;
-        std::ofstream createOutputFile("logs/output.txt");
-        std::cout << "\n\n\tYou must now try again! " << std::endl;
-    }
-    else if (exists1 && !exists2)
-    {
-        clearScreen();
-        std::cout << "\n\n\tOne of the program files are missing, new file will be created ;)" << std::endl;
-        std::ofstream createLogFile("logs/logs.txt");
-        std::cout << "\n\n\tYou must now try again! " << std::endl;
+        !fileExists("logs/output.txt") ? (std::ofstream("logs/output.txt")) : (NULL);
+        !fileExists("logs/logs.txt") ? (std::ofstream("logs/logs.txt")) : (NULL); //using ternaries to check for files
+        !fileExists("logs/account.txt") ? (std::ofstream("logs/account.txt")) : (NULL);
     }
     std::cout << "\n\n\tYour must complete human verification first. " << std::endl;
     humanVerification();
