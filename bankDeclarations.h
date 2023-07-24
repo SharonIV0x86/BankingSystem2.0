@@ -6,7 +6,7 @@
 #include <fstream>
 #include <memory>
 #include <string>
-#include <openssl/evp.h>
+#include "./src/evp.h"
 class fileIO;
 
 class fileIO
