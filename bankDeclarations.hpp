@@ -32,7 +32,8 @@ public:
     void cool() const;
     int readIntFromFile() const;
     template <typename Temp>
-    void writeToFile(const Temp &val) const {
+    void writeToFile(const Temp &val) const
+    {
         std::ofstream outputFile("logs/output.txt", std::ios::app);
         if (outputFile.is_open())
         {
@@ -70,7 +71,15 @@ public:
     void checkCredentials();
     ~Account()
     {
-        savingLogs(7);
+        try
+        {
+            savingLogs(7);
+        }
+        catch (...)
+        { // Catch any potential exceptions
+            // Handle the exception appropriately, e.g., log an error message
+            std::cerr << "Error saving logs in destructor!\n";
+        }
     }
 };
 Account account;
