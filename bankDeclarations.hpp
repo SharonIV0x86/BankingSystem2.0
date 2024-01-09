@@ -11,6 +11,7 @@
 #include <random>
 #include <memory>
 #include "./lib/openssl/evp.h"
+#include "./lib/openssl/rand.h"
 #include "color.hpp"
 class fileIO
 {

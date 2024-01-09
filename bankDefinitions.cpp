@@ -94,21 +94,26 @@ void checkForEmptyField(std::string field)
         exit(0);
     }
 }
-void humanVerification() {
+void humanVerification()
+{
     static int count = 0;
-    if (count > 3) {
+    if (count > 3)
+    {
         printColoredText("\n\n\tYou have reached the maximum number of wrong attempts! Kindly try again later.\n", ANSI_COLOR_RED);
         account.savingLogs(5);
         exit(0);
     }
 
-    // Use a more secure random number generator
-    std::random_device rd;
-    std::mt19937 gen(rd()); // Use a better engine than std::rand()
-    std::uniform_int_distribution<> dis(1, 20); // Generate numbers between 1 and 20
-
-    int num1 = dis(gen);
-    int num2 = dis(gen);
+    unsigned char buffer[2 * sizeof(int)];  // Enough space for two integers
+    if (RAND_bytes(buffer, sizeof(buffer)) != 1) {
+        // Handle error if random number generation fails
+        std::cerr << "Error generating random numbers using OpenSSL!\n";
+        return;
+    }
+    int num1 = *reinterpret_cast<int*>(buffer);
+    int num2 = *reinterpret_cast<int*>(buffer + sizeof(int));
+    num1 = std::abs(num1) % 20;  // Ensure positive values between 0 and 19
+    num2 = std::abs(num2) % 20;
 
     int result = num1 + num2;
 
