@@ -46,7 +46,7 @@ void fileIO::cool() const
 {
     printColoredText("\n\n\tThis program was created by SharonIV0x86 aka Jasperr \n", ANSI_COLOR_GREEN);
     printColoredText("\tA lot of efforts have been put into and this time i rewrote whole code from scratch after an year! \n", ANSI_COLOR_GREEN);
-    printColoredText("\tStill there are some weak points in the code and it looks very complex \n", ANSI_COLOR_GREEN);
+    printColoredText("\tStill there are some weak points in the code and it looks very complex. Feel Free To Raise an Issue ;) \n", ANSI_COLOR_GREEN);
     printColoredText("\tand its also very unoptimized, yes i suck at coding swy :( lol Thanks! \n ", ANSI_COLOR_GREEN);
     printColoredText("\tIf the program exitted unexpectedly is possible you entered some wrong value or contact developer ;)  \n", ANSI_COLOR_GREEN);
     printColoredText("\thttps://GitHub.com/SharonIV0X86 \n", ANSI_COLOR_GREEN);
