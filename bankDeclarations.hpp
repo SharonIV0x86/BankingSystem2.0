@@ -8,6 +8,7 @@
 #include <memory>
 #include <string>
 #include <format>
+#include <random>
 #include <memory>
 #include "./lib/openssl/evp.h"
 #include "color.hpp"

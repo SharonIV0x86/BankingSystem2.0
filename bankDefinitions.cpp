@@ -94,21 +94,21 @@ void checkForEmptyField(std::string field)
         exit(0);
     }
 }
-void humanVerification()
-{
+void humanVerification() {
     static int count = 0;
-    if (count > 3)
-    {
-
+    if (count > 3) {
         printColoredText("\n\n\tYou have reached the maximum number of wrong attempts! Kindly try again later.\n", ANSI_COLOR_RED);
         account.savingLogs(5);
         exit(0);
     }
 
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    // Use a more secure random number generator
+    std::random_device rd;
+    std::mt19937 gen(rd()); // Use a better engine than std::rand()
+    std::uniform_int_distribution<> dis(1, 20); // Generate numbers between 1 and 20
 
-    int num1 = std::rand() % 20;
-    int num2 = std::rand() % 20;
+    int num1 = dis(gen);
+    int num2 = dis(gen);
 
     int result = num1 + num2;
 
