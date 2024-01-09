@@ -9,6 +9,7 @@ This is a simple banking system implemented in C++. It provides basic banking fu
 - [Logging](#Logging)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributing](#Contributions)
 - [Future Updates](#Future-Updates)
 - [Working](#Working)
 - [Developer's Note](#Developer's-Note)
@@ -46,9 +47,14 @@ To Delete the executable run **make delete** to delete the executable file.
 
 **On Linux Only**
 If you face any issues as the log files are empty it is possibly because the text files are missing permissions. run this command 
-```chmod +rwx Bank.cpp BankHeaders.cpp BankHeaders.h```
+```chmod +rwx Bank.cpp bankDeclarations.hpp bankDefinitions.hpp color.hpp```
+and then just run **make**
 If the problem persists. then execute.
 ```chmod +rwx *```
+**Make Error**
+If you encounter make error of ```-lssl -lcrypto``` linking errors while running the Makefile its possibly because of the absence of the OpenSSL libraries
+so, you can install those libraries by running ```sudo apt-get install libssl-dev```.
+
 
 ## USAGE 
 - Open the terminal and run **make** to run the make file.
@@ -58,6 +64,10 @@ If the problem persists. then execute.
 - **Output.txt** contains the pin and password in encrypted form.
 - **logs.txt** contains event logs like creation, logging of accounts and all other events.
 - **account.txt** contains updated balance
+
+## Contributions
+If you'd like to contribute to this project feel free so raise an issue or open a pull request.
+
 
 ## Future Updates
 - Implementing a database for storing all the data, log events.
