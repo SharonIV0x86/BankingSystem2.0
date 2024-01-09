@@ -6,19 +6,15 @@
 #include <fstream>
 #include <memory>
 #include <string>
-#include "./src/evp.h"
-class fileIO;
-
+#include <memory>
+#include "./lib/openssl/evp.h"
+#include "color.hpp"
 class fileIO
 {
 public:
     int age;
     int depositAmount, withdrawAmount, remainingBalance;
-
-    std::string readAcn, readPin,
-        hashedPassword, readPassword,
-        permanentAccountName, pin, accountName, password;
-
+    std::string readAcn, readPin,hashedPassword, readPassword, permanentAccountName, pin, accountName, password;
     int writeIntToFile(int value);
     void cool();
     int readIntFromFile();
@@ -33,7 +29,7 @@ public:
         }
         else
         {
-            std::cout << "Failed to open the file for writing." << std::endl;
+            printColoredText("\n\n\tFailed to open file for writing! \n", ANSI_COLOR_RED);
         }
     }
     ~fileIO()
