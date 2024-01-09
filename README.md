@@ -51,6 +51,8 @@ If you face any issues as the log files are empty it is possibly because the tex
 and then just run **make**
 If the problem persists. then execute.
 ```chmod +rwx *```
+
+
 **Make Error**
 If you encounter make error of ```-lssl -lcrypto``` linking errors while running the Makefile its possibly because of the absence of the OpenSSL libraries
 so, you can install those libraries by running ```sudo apt-get install libssl-dev```.
