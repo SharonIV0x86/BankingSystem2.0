@@ -18,7 +18,7 @@ void clearScreen()
     }
 #endif
 }
-int fileIO::writeIntToFile(int value)
+int fileIO::writeIntToFile(int value) const
 {
     std::ofstream createAccountFile("logs/account.txt");
     if (!fileExists("logs/account.txt"))
@@ -33,19 +33,16 @@ int fileIO::writeIntToFile(int value)
     std::ofstream file(filename);
     if (!file)
     {
-        std::string str = "Error opening the file: " + filename + " \n";
-        printColoredText(str, ANSI_COLOR_RED);
+        printColoredText(std::format("Error Opening the File: {0}", filename), ANSI_COLOR_RED);
         return 1;
     }
 
     file << value;
-    return 0;
     file.close();
-
     return 0;
 }
 
-void fileIO::cool()
+void fileIO::cool() const
 {
     printColoredText("\n\n\tThis program was created by SharonIV0x86 aka Jasperr \n", ANSI_COLOR_GREEN);
     printColoredText("\tA lot of efforts have been put into and this time i rewrote whole code from scratch after an year! \n", ANSI_COLOR_GREEN);
@@ -53,10 +50,9 @@ void fileIO::cool()
     printColoredText("\tand its also very unoptimized, yes i suck at coding swy :( lol Thanks! \n ", ANSI_COLOR_GREEN);
     printColoredText("\tIf the program exitted unexpectedly is possible you entered some wrong value or contact developer ;)  \n", ANSI_COLOR_GREEN);
     printColoredText("\thttps://GitHub.com/SharonIV0X86 \n", ANSI_COLOR_GREEN);
-
 }
 
-int fileIO::readIntFromFile()
+int fileIO::readIntFromFile() const
 {
 
     if (!fileExists("logs/account.txt"))
@@ -120,8 +116,7 @@ void humanVerification()
 
     std::cout << "\n\t\t|--------------------------------------------|"
               << "\n\t\t|                                            |";
-    std::string str = "\n\t\t| VERIFICATION EQUATION -----> " + std::to_string(num1) + " + " + std::to_string(num2) + "\t     |";
-    printColoredText(str, ANSI_COLOR_GREEN);
+    printColoredText(std::format("\n\t\t| VERIFICATION EQUATION -----> {0} + {1} \t     |", num1, num2), ANSI_COLOR_GREEN);
     std::cout << "\n\t\t|Enter the EQUATION on the screen:           |"
               << "\n\t\t|--------------------------------------------|\n";
 
@@ -133,9 +128,8 @@ void humanVerification()
     if (std::cin.fail() || result != userInput)
     {
         std::cin.clear();
-        std::string str = "\n\n\tYou have " + std::to_string(3 - count) + " attempts left! \n";
         printColoredText("\n\n\tPlease enter the result of the above equation correctly!\n", ANSI_COLOR_RED);
-        printColoredText(str, ANSI_COLOR_RED);
+        printColoredText(std::format("\n\n\tYou have {0} attempts left! ", (3 - count)), ANSI_COLOR_RED);
         count += 1;
         humanVerification();
     }
@@ -151,8 +145,8 @@ bool isFileEmpty(const std::string &filename)
     std::ifstream file(filename);
     if (!file)
     {
-        std::string str = "Error opening the file: " + filename + " \n";
-        printColoredText(str, ANSI_COLOR_RED);
+        // std::string str = "Error opening the file: " + filename + " \n";
+        printColoredText(std::format("Error Opening the File: {0} \n", filename), ANSI_COLOR_RED);
         return false;
     }
 
@@ -178,8 +172,9 @@ void Account::accountAccess()
     int counter = 0;
     bool proceedTransaction = false;
     std::cin.ignore();
-    std::string str = "\n\n\tWELCOME TO Cyprus National Bank, " + File->permanentAccountName + "\tYour Balance--> " + std::to_string(File->remainingBalance);
-    printColoredText(str, ANSI_COLOR_GREEN);
+    // std::string str = "\n\n\tWELCOME TO Cyprus National Bank, " + File->permanentAccountName + "\tYour Balance--> " + std::to_string(File->remainingBalance);
+    printColoredText(std::format("\n\n\tWELCOME TO Cyprus National Bank, {0} \t Your Balance--> {1} ", File->permanentAccountName, File->remainingBalance),
+                     ANSI_COLOR_GREEN);
     printColoredText("\n\n\tPress 1 to DEPOSIT money to your account \n\n\tPress 2 to WITHDRAW money from your account) \n\n\tPress 3 to DELETE current account \n\n\tPress 4 to read bank's policies \n\n\tPress 5 to exit and get to know something cool ! \n\n\tNote : Your account can hold max of 10, 00, 000 !\n\t\t-- -- -- --->",
                      ANSI_COLOR_CYAN);
     int choice = 0;
@@ -194,8 +189,8 @@ void Account::accountAccess()
 
         while (counter < 3)
         {
-            std::string str = "\n\n\tYour current remainingBalance---> " + std::to_string(File->remainingBalance) + " \n";
-            printColoredText(str, ANSI_COLOR_CYAN);
+            // std::string str = "\n\n\tYour current remainingBalance---> " + std::to_string(File->remainingBalance) + " \n";
+            printColoredText(std::format("\n\n\tYour current remaining Balance---> {0} \n", File->remainingBalance), ANSI_COLOR_CYAN);
             printColoredText("\n\n\tEnter the amount of money you want to DEPOSIT to your account. you cannot DEPOSIT more than 1,00,000 at a time!---> ", ANSI_COLOR_YELLOW);
             counter++;
             std::cin >> File->depositAmount;
@@ -241,8 +236,8 @@ void Account::accountAccess()
         while (counter < 3)
         {
             clearScreen();
-            std::string str = "\n\n\tYour current remainingBalance---> " + std::to_string(File->remainingBalance) + " \n";
-            printColoredText(str, ANSI_COLOR_CYAN);
+            // std::string str = "\n\n\tYour current remainingBalance---> " + std::to_string(File->remainingBalance) + " \n";
+            printColoredText(std::format("Your current remaining Balance---> {0} \n", File->remainingBalance), ANSI_COLOR_CYAN);
             printColoredText("\n\n\tEnter the amount of MONEY you want to WITHDRAW. Entered amount must NOT be greater than your current remainingBalance!---> ", ANSI_COLOR_YELLOW);
             std::cin >> File->withdrawAmount;
             int rem = File->remainingBalance - File->withdrawAmount;
@@ -299,20 +294,17 @@ void Account::accountAccess()
         std::getline(std::cin, File->pin);
         checkForEmptyField(File->pin);
 
-
         File->permanentAccountName = File->accountName;
         File->hashedPassword = computeHash(File->password);
         File->pin = File->pin;
         if (File->permanentAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->pin == File->readPin)
         {
             clearScreen();
-
-            constexpr const char *filenames[3] = {"logs/output.txt", "logs/logs.txt", "logs/account.txt"};
-
-            for (int i = 0; i < 3; i++)
+            std::vector<std::string> filenames = {"logs/output.txt", "logs/logs.txt", "logs/account.txt"}; // constexpr const char *filenames[3] = {"logs/output.txt", "logs/logs.txt", "logs/account.txt"};
+            for (auto ae : filenames)
             {
 
-                std::ofstream ofs(filenames[i], std::ios::trunc);
+                std::ofstream ofs(ae, std::ios::trunc);
                 ofs.close();
             }
             printColoredText("\n\n\t YOUR ACCOUNT HAS BEEN DELETED PERMANENTYL! \n", ANSI_COLOR_GREEN);
@@ -366,8 +358,7 @@ void Account::accountAccess()
     }
     }
 }
-void Account ::savingLogs(int logAction)
-{
+void Account ::savingLogs(int logAction) const {
     std::ofstream log("logs/logs.txt", std::ios::app);
     std::time_t currentTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     char timeString[100];
@@ -409,7 +400,7 @@ void Account::checkCredentials()
     if (File->permanentAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->pin == File->readPin)
     {
         clearScreen();
-        printColoredText( "\n\n\tRedirecting to your account now! Press Enter! \n", ANSI_COLOR_GREEN);
+        printColoredText("\n\n\tRedirecting to your account now! Press Enter! \n", ANSI_COLOR_GREEN);
         account.savingLogs(2);
 
         accountAccess();

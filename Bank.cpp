@@ -7,9 +7,9 @@ int main()
     if (!fileExists("logs/output.txt") || !fileExists("logs/logs.txt") || !fileExists("logs/account.txt"))
     {
         printColoredText("\n\n\tSome program files are missing, please wait while we fix them! \n", ANSI_COLOR_RED);
-        !fileExists("logs/output.txt") ? (std::ofstream("logs/output.txt"),1) : (0);
-        !fileExists("logs/logs.txt") ? (std::ofstream("logs/logs.txt"), 1) : (0); //using ternaries to check for files, self note: it should return a same value
-        !fileExists("logs/account.txt") ? (std::ofstream("logs/account.txt"), 1) : (0);
+        !fileExists("logs/output.txt") ? (std::ofstream("logs/output.txt"),1): 0;
+        !fileExists("logs/logs.txt") ? (std::ofstream("logs/logs.txt"), 1): 0; //using ternaries to check for files, self note: it should return a same value
+        !fileExists("logs/account.txt") ? (std::ofstream("logs/account.txt"), 1) : 0;
     }
     printColoredText("\n\n\tYour must complete human verification first. \n", ANSI_COLOR_BLUE);
     humanVerification();

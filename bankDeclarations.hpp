@@ -4,8 +4,10 @@
 #include <fstream>
 #include <ctime>
 #include <fstream>
+#include <vector>
 #include <memory>
 #include <string>
+#include <format>
 #include <memory>
 #include "./lib/openssl/evp.h"
 #include "color.hpp"
@@ -13,14 +15,22 @@ class fileIO
 {
 public:
     int age;
-    int depositAmount, withdrawAmount, remainingBalance;
-    std::string readAcn, readPin,hashedPassword, readPassword, permanentAccountName, pin, accountName, password;
-    int writeIntToFile(int value);
-    void cool();
-    int readIntFromFile();
+    int depositAmount;
+    int withdrawAmount;
+    int remainingBalance;
+    std::string readAcn;
+    std::string readPin;
+    std::string hashedPassword;
+    std::string readPassword;
+    std::string permanentAccountName;
+    std::string pin;
+    std::string accountName;
+    std::string password;
+    int writeIntToFile(int value) const;
+    void cool() const;
+    int readIntFromFile() const;
     template <typename Temp>
-    void writeToFile(const Temp &val)
-    {
+    void writeToFile(const Temp &val) const {
         std::ofstream outputFile("logs/output.txt", std::ios::app);
         if (outputFile.is_open())
         {
@@ -38,7 +48,7 @@ public:
     }
     friend std::size_t hash(std::string hash);
 };
-std::unique_ptr<fileIO> File = std::make_unique<fileIO>();
+const std::unique_ptr<fileIO> File = std::make_unique<fileIO>();
 class User
 {
 public:
@@ -54,7 +64,7 @@ public:
     friend void clearScreen();
     void accountAccess();
 
-    void savingLogs(int LogAction);
+    void savingLogs(int LogAction) const;
 
     void checkCredentials();
     ~Account()
