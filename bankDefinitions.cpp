@@ -148,7 +148,6 @@ bool isFileEmpty(const std::string &filename)
     std::ifstream file(filename);
     if (!file)
     {
-        // std::string str = "Error opening the file: " + filename + " \n";
         printColoredText(std::format("Error Opening the File: {0} \n", filename), ANSI_COLOR_RED);
         return false;
     }
@@ -175,7 +174,6 @@ void Account::accountAccess()
     int counter = 0;
     bool proceedTransaction = false;
     std::cin.ignore();
-    // std::string str = "\n\n\tWELCOME TO Cyprus National Bank, " + File->permanentAccountName + "\tYour Balance--> " + std::to_string(File->remainingBalance);
     printColoredText(std::format("\n\n\tWELCOME TO Cyprus National Bank, {0} \t Your Balance--> {1} ", File->permanentAccountName, File->remainingBalance),
                      ANSI_COLOR_GREEN);
     printColoredText("\n\n\tPress 1 to DEPOSIT money to your account \n\n\tPress 2 to WITHDRAW money from your account) \n\n\tPress 3 to DELETE current account \n\n\tPress 4 to read bank's policies \n\n\tPress 5 to exit and get to know something cool ! \n\n\tNote : Your account can hold max of 10, 00, 000 !\n\t\t-- -- -- --->",
@@ -192,7 +190,6 @@ void Account::accountAccess()
 
         while (counter < 3)
         {
-            // std::string str = "\n\n\tYour current remainingBalance---> " + std::to_string(File->remainingBalance) + " \n";
             printColoredText(std::format("\n\n\tYour current remaining Balance---> {0} \n", File->remainingBalance), ANSI_COLOR_CYAN);
             printColoredText("\n\n\tEnter the amount of money you want to DEPOSIT to your account. you cannot DEPOSIT more than 1,00,000 at a time!---> ", ANSI_COLOR_YELLOW);
             counter++;
@@ -239,7 +236,6 @@ void Account::accountAccess()
         while (counter < 3)
         {
             clearScreen();
-            // std::string str = "\n\n\tYour current remainingBalance---> " + std::to_string(File->remainingBalance) + " \n";
             printColoredText(std::format("Your current remaining Balance---> {0} \n", File->remainingBalance), ANSI_COLOR_CYAN);
             printColoredText("\n\n\tEnter the amount of MONEY you want to WITHDRAW. Entered amount must NOT be greater than your current remainingBalance!---> ", ANSI_COLOR_YELLOW);
             std::cin >> File->withdrawAmount;
@@ -303,7 +299,7 @@ void Account::accountAccess()
         if (File->permanentAccountName == File->readAcn && File->hashedPassword == File->readPassword && File->pin == File->readPin)
         {
             clearScreen();
-            std::vector<std::string> filenames = {"logs/output.txt", "logs/logs.txt", "logs/account.txt"}; // constexpr const char *filenames[3] = {"logs/output.txt", "logs/logs.txt", "logs/account.txt"};
+            std::vector<std::string> filenames = {"logs/output.txt", "logs/logs.txt", "logs/account.txt"};
             for (auto ae : filenames)
             {
 
