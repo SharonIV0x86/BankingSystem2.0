@@ -46,7 +46,6 @@ public:
     {
         cool();
     }
-    friend std::size_t hash(std::string hash);
 };
 const std::unique_ptr<fileIO> File = std::make_unique<fileIO>();
 class User

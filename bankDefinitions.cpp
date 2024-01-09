@@ -68,8 +68,7 @@ int fileIO::readIntFromFile() const
     readInt.close();
     return 0;
 }
-std::string computeHash(const std::string &input)
-{
+std::string computeHash(const std::string &input) {
     EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
     const EVP_MD *md = EVP_sha512();
     EVP_DigestInit_ex(mdctx, md, nullptr);
@@ -79,10 +78,9 @@ std::string computeHash(const std::string &input)
     EVP_DigestFinal_ex(mdctx, digest, &digestLength);
     EVP_MD_CTX_free(mdctx);
     std::string hash;
-    for (unsigned int i = 0; i < digestLength; i++)
-    {
-        char buf[3];
-        sprintf(buf, "%02x", digest[i]);
+    for (unsigned int i = 0; i < digestLength; i++) {
+        char buf[4]; // Size 4 for null terminator
+        snprintf(buf, sizeof(buf), "%02x", digest[i]); // Use snprintf for safety
         hash += buf;
     }
     return hash;
